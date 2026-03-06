@@ -22,9 +22,8 @@ export default function LandingPage() {
         body: JSON.stringify({
           access_key: "1f7f22f9-4dff-4a25-8936-086884bb543a",
           subject: `[위드네트웍스] 상담신청 - ${consultName}`,
-          from_name: consultName,
-          name: consultName,
-          phone: consultPhone,
+          from_name: "위드네트웍스 홈페이지",
+          message: `이름: ${consultName}\n전화번호: ${consultPhone}`,
         }),
       });
       if (res.ok) {
