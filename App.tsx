@@ -6,6 +6,39 @@ export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showTopBtn, setShowTopBtn] = useState(false);
+  const [showConsultPopup, setShowConsultPopup] = useState(false);
+  const [consultName, setConsultName] = useState("");
+  const [consultPhone, setConsultPhone] = useState("");
+
+  const handleConsultSubmit = async () => {
+    if (!consultName.trim() || !consultPhone.trim()) {
+      alert("이름과 전화번호를 입력해주세요.");
+      return;
+    }
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "1f7f22f9-4dff-4a25-8936-086884bb543a",
+          subject: `[위드네트웍스] 상담신청 - ${consultName}`,
+          from_name: consultName,
+          name: consultName,
+          phone: consultPhone,
+        }),
+      });
+      if (res.ok) {
+        alert("상담신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.");
+        setConsultName("");
+        setConsultPhone("");
+        setShowConsultPopup(false);
+      } else {
+        alert("전송에 실패했습니다. 전화로 문의해주세요.");
+      }
+    } catch {
+      alert("전송에 실패했습니다. 전화로 문의해주세요.");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -1081,18 +1114,73 @@ export default function LandingPage() {
 
       {/* ================= FIXED BOTTOM BAR ================= */}
       
-      {/* 1. Mobile & Tablet Only (Sticky Bottom) */}
-      <div className="fixed bottom-0 left-0 w-full z-50 bg-brand text-white py-4 px-5 flex justify-between items-center xl:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
-         <div>
-            <div className="text-[10px] opacity-80 mb-0.5">평일 09:00 ~ 18:00 상담가능</div>
-            <div className="font-bold text-lg">010-6419-7861</div>
+      {/* Mobile Consultation Popup */}
+      {showConsultPopup && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center md:hidden">
+          <div className="absolute inset-0 bg-black/50" onClick={() => setShowConsultPopup(false)}></div>
+          <div className="relative bg-white rounded-2xl p-6 mx-5 w-full max-w-sm shadow-2xl">
+            <button onClick={() => setShowConsultPopup(false)} className="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+              <X className="w-5 h-5" />
+            </button>
+            <h3 className="text-xl font-bold text-gray-900 mb-1">상담신청</h3>
+            <p className="text-sm text-gray-500 mb-5">평일 09:00 ~ 18:00 상담가능</p>
+            <div className="space-y-3">
+              <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand" />
+              <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand" />
+              <div className="flex items-center gap-2">
+                <div className="w-4 h-4 rounded border border-gray-300 flex items-center justify-center bg-brand">
+                  <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                </div>
+                <span className="text-xs text-gray-500">개인정보 수집·이용 동의</span>
+              </div>
+              <button onClick={handleConsultSubmit} className="w-full bg-brand text-white py-3 rounded-lg font-bold text-sm hover:bg-brand/90 transition-colors">
+                상담신청하기
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 1. Mobile Only (Sticky Bottom) */}
+      <div className="fixed bottom-0 left-0 w-full z-50 bg-brand text-white md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
+         <div className="text-[10px] text-center opacity-80 pt-2">평일 09:00 ~ 18:00 상담가능</div>
+         <div className="py-2 pb-3 px-5 flex gap-2">
+            <a href="tel:010-6419-7861" className="flex-1 bg-white text-brand py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm">
+              <Phone className="w-4 h-4" /> 전화상담
+            </a>
+            <button onClick={() => setShowConsultPopup(true)} className="flex-1 bg-black text-white py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
+              상담신청
+            </button>
          </div>
-         <a href="tel:010-6419-7861" className="bg-white text-brand px-5 py-2.5 rounded-lg font-bold text-sm shadow-sm flex items-center gap-2">
-           <Phone className="w-4 h-4" /> 전화상담
-         </a>
       </div>
-      
-      {/* 2. Desktop Full Width Bar (New Design) */}
+
+      {/* 2. Tablet (Sticky Bottom - 상담신청) */}
+      <div className="hidden md:flex xl:hidden fixed bottom-0 left-0 w-full z-50 bg-brand text-white h-16 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] items-center justify-between px-8">
+         <div className="flex items-center gap-4">
+             <div className="bg-[#FFD700] text-black px-4 py-1 rounded-full font-bold text-xs shadow-sm">
+                평일 09:00 ~ 18:00 상담가능
+             </div>
+             <div className="flex items-center gap-2">
+                 <Phone className="w-5 h-5" />
+                 <div className="text-xl font-bold">010-6419-7861</div>
+             </div>
+         </div>
+         <div className="flex items-center gap-3">
+             <div className="flex items-center gap-1.5 mr-1">
+                 <div className="bg-white rounded p-0.5">
+                    <Check className="w-3 h-3 text-brand" strokeWidth={4} />
+                 </div>
+                 <span className="text-xs font-medium opacity-90">개인정보 수집·이용 동의</span>
+             </div>
+             <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-28 text-sm focus:outline-none" />
+             <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-36 text-sm focus:outline-none" />
+             <button onClick={handleConsultSubmit} className="bg-black text-white px-6 py-2 rounded font-bold hover:bg-gray-900 transition-colors text-sm">
+                상담신청
+             </button>
+         </div>
+      </div>
+
+      {/* 3. Desktop Full Width Bar (상담신청) */}
       <div className="hidden xl:flex fixed bottom-0 left-0 w-full z-50 bg-brand text-white h-20 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] items-center justify-between px-20">
          <div className="flex items-center gap-6">
              <div className="bg-[#FFD700] text-black px-5 py-1.5 rounded-full font-bold text-sm shadow-sm">
@@ -1105,7 +1193,7 @@ export default function LandingPage() {
                  </div>
              </div>
          </div>
-         
+
          <div className="flex items-center gap-4">
              <div className="flex items-center gap-2 mr-4">
                  <div className="bg-white rounded p-0.5">
@@ -1113,9 +1201,9 @@ export default function LandingPage() {
                  </div>
                  <span className="text-sm font-medium opacity-90">개인정보 수집·이용 동의</span>
              </div>
-             <input type="text" placeholder="이름" className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-40 text-sm focus:outline-none" />
-             <input type="text" placeholder="전화번호" className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-48 text-sm focus:outline-none" />
-             <button className="bg-black text-white px-8 py-2.5 rounded font-bold hover:bg-gray-900 transition-colors text-sm">
+             <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-40 text-sm focus:outline-none" />
+             <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-48 text-sm focus:outline-none" />
+             <button onClick={handleConsultSubmit} className="bg-black text-white px-8 py-2.5 rounded font-bold hover:bg-gray-900 transition-colors text-sm">
                 상담신청
              </button>
          </div>
