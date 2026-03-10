@@ -148,7 +148,7 @@ export default function LandingPage() {
         <div className="relative z-10 w-full max-w-[1920px] mx-auto px-5 xl:px-20 pt-20">
           <FadeIn>
             <h1 className="text-white font-bold leading-snug
-              text-[17px] sm:text-[34px] md:text-[42px]
+              text-[14px] sm:text-[34px] md:text-[42px]
               xl:text-[56px] 2xl:text-[64px]
             ">
               ㈜위드네트웍스는 전문의가 첫 미팅부터 함께 참여하여<br />
@@ -158,7 +158,7 @@ export default function LandingPage() {
 
           <FadeIn delay={0.2}>
             <p className="mt-6 text-white/90 font-medium
-              text-base sm:text-lg
+              text-xs sm:text-lg
               xl:text-xl 2xl:text-2xl max-w-3xl leading-relaxed
             ">
               전문의와 컨설턴트가 함께 설계하는<br className="sm:hidden"/>
