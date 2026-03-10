@@ -148,7 +148,7 @@ export default function LandingPage() {
         <div className="relative z-10 w-full max-w-[1920px] mx-auto px-5 xl:px-20 pt-20">
           <FadeIn>
             <h1 className="text-white font-bold leading-snug
-              text-[28px] sm:text-[34px] md:text-[42px]
+              text-[17px] sm:text-[34px] md:text-[42px]
               xl:text-[56px] 2xl:text-[64px]
             ">
               ㈜위드네트웍스는 전문의가 첫 미팅부터 함께 참여하여<br />
