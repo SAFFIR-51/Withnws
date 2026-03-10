@@ -151,8 +151,8 @@ export default function LandingPage() {
               text-[26px] md:text-[34px] lg:text-[42px]
               xl:text-[56px] 2xl:text-[64px]
             ">
-              ㈜위드네트웍스는<br className="md:hidden" /> 전문의가 첫 미팅부터 함께 참여하여<br />
-              <span className="text-[#2473E3]">개원에서 운영, 성장까지</span><br className="md:hidden" /> 모든 여정의 동반자가 되어드리겠습니다.
+              ㈜위드네트웍스는 전문의가 첫 미팅부터 함께 참여하여<br />
+              <span className="text-[#2473E3]">개원에서 운영, 성장까지</span> 모든 여정의 동반자가 되어드리겠습니다.
             </h1>
           </FadeIn>
 
