@@ -21,7 +21,7 @@ export default function LandingPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "1f7f22f9-4dff-4a25-8936-086884bb543a",
+          access_key: "d21c085d-afcb-4b60-89ae-3b1cd9e81186",
           subject: `[위드네트웍스] 상담신청 - ${consultName}`,
           from_name: "위드네트웍스 홈페이지",
           message: `이름: ${consultName}\n전화번호: ${consultPhone}\n문의사항: ${consultMessage || '없음'}`,
