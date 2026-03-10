@@ -9,6 +9,7 @@ export default function LandingPage() {
   const [showConsultPopup, setShowConsultPopup] = useState(false);
   const [consultName, setConsultName] = useState("");
   const [consultPhone, setConsultPhone] = useState("");
+  const [consultMessage, setConsultMessage] = useState("");
 
   const handleConsultSubmit = async () => {
     if (!consultName.trim() || !consultPhone.trim()) {
@@ -23,13 +24,14 @@ export default function LandingPage() {
           access_key: "1f7f22f9-4dff-4a25-8936-086884bb543a",
           subject: `[위드네트웍스] 상담신청 - ${consultName}`,
           from_name: "위드네트웍스 홈페이지",
-          message: `이름: ${consultName}\n전화번호: ${consultPhone}`,
+          message: `이름: ${consultName}\n전화번호: ${consultPhone}\n문의사항: ${consultMessage || '없음'}`,
         }),
       });
       if (res.ok) {
         alert("상담신청이 완료되었습니다. 빠른 시일 내에 연락드리겠습니다.");
         setConsultName("");
         setConsultPhone("");
+        setConsultMessage("");
         setShowConsultPopup(false);
       } else {
         alert("전송에 실패했습니다. 전화로 문의해주세요.");
@@ -176,7 +178,7 @@ export default function LandingPage() {
       <section id="about" className="py-24 xl:py-36 bg-white">
         <div className="max-w-[1280px] mx-auto px-5 xl:px-20">
             <FadeIn>
-                <h2 className="text-3xl md:text-4xl xl:text-[56px] font-bold text-gray-900 mb-12" style={{ lineHeight: '1.5' }}>
+                <h2 className="text-2xl md:text-4xl xl:text-[56px] font-bold text-gray-900 mb-12" style={{ lineHeight: '1.5' }}>
                     <span className="text-brand">㈜위드네트웍스</span>는<br />
                     병·의원 개원부터 운영, 성장까지<br />
                     전 과정을 아우르는 <span className="text-brand">종합 컨설팅 전문 기업</span>입니다.
@@ -212,7 +214,7 @@ export default function LandingPage() {
                 <div className="flex-1">
                     <FadeIn>
                         <span className="text-brand font-bold text-2xl mb-4 block">01.</span>
-                        <h2 className="text-4xl xl:text-5xl font-bold mb-8 text-gray-900" style={{ lineHeight: '1.4' }}>
+                        <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 text-gray-900" style={{ lineHeight: '1.4' }}>
                             전문의가 직접 참여하는<br />
                             실전 컨설팅
                         </h2>
@@ -307,7 +309,7 @@ export default function LandingPage() {
                 <div className="flex-1">
                     <FadeIn>
                         <span className="text-brand font-bold text-2xl mb-4 block">02.</span>
-                        <h2 className="text-4xl xl:text-5xl font-bold mb-8 text-gray-900" style={{ lineHeight: '1.4' }}>
+                        <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 text-gray-900" style={{ lineHeight: '1.4' }}>
                             현장 중심의<br />
                             지속 가능한 운영 지원
                         </h2>
@@ -336,7 +338,7 @@ export default function LandingPage() {
                 <div className="flex-1">
                     <FadeIn>
                         <span className="text-brand font-bold text-2xl mb-4 block">03.</span>
-                        <h2 className="text-4xl xl:text-5xl font-bold mb-8 text-gray-900" style={{ lineHeight: '1.4' }}>
+                        <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8 text-gray-900" style={{ lineHeight: '1.4' }}>
                             CS 컨설팅 구축<br />
                             함께 성장하는 시스템
                         </h2>
@@ -399,7 +401,7 @@ export default function LandingPage() {
       <section id="opening-consulting" className="py-24 xl:py-36 bg-[#EEF4FB] scroll-mt-20">
          <div className="max-w-[1280px] mx-auto px-5 xl:px-20 text-center">
             <FadeIn>
-                <h2 className="text-3xl md:text-4xl xl:text-[48px] font-bold text-gray-900 mb-8" style={{ lineHeight: '1.4' }}>
+                <h2 className="text-2xl md:text-4xl xl:text-[48px] font-bold text-gray-900 mb-8" style={{ lineHeight: '1.4' }}>
                     개원컨설팅<br />
                     <span className="text-brand">병·의원 개원의 모든 과정을 함께합니다.</span>
                 </h2>
@@ -426,7 +428,7 @@ export default function LandingPage() {
         </div>
         <div className="relative z-10 max-w-[1440px] mx-auto px-5 xl:px-20 text-white">
             <FadeIn>
-                <h2 className="text-3xl md:text-4xl xl:text-[44px] font-bold mb-4 text-center" style={{ lineHeight: '1.5' }}>
+                <h2 className="text-2xl md:text-4xl xl:text-[44px] font-bold mb-4 text-center" style={{ lineHeight: '1.5' }}>
                     <span className="text-[#2473E3]">위드네트웍스</span>가 놓치는 부분 없이<br />
                     개원 업무를 도와드리겠습니다.
                 </h2>
@@ -466,7 +468,7 @@ export default function LandingPage() {
         <div className="max-w-[1440px] mx-auto px-5 xl:px-20">
           <div className="text-center mb-16">
             <FadeIn>
-                <h2 className="text-4xl xl:text-[50px] font-bold text-gray-900 mb-6">개원 · 운영 프로세스</h2>
+                <h2 className="text-2xl md:text-4xl xl:text-[50px] font-bold text-gray-900 mb-6">개원 · 운영 프로세스</h2>
                 <p className="text-gray-600 text-xl max-w-3xl mx-auto" style={{ lineHeight: '1.8' }}>병원의 시작부터 안정적인 성장까지, 6단계 프로세스로 함께합니다</p>
             </FadeIn>
           </div>
@@ -537,7 +539,7 @@ export default function LandingPage() {
       <section id="operation-consulting" className="py-24 xl:py-36 bg-white scroll-mt-20">
          <div className="max-w-[1440px] mx-auto px-5 xl:px-20 text-center">
              <FadeIn>
-                 <h2 className="text-4xl xl:text-5xl font-bold text-gray-900 mb-4">운영컨설팅</h2>
+                 <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold text-gray-900 mb-4">운영컨설팅</h2>
                  <p className="text-gray-600 text-xl mb-12 max-w-3xl mx-auto" style={{ lineHeight: '1.8' }}>
                     개원 이후, 병원이 안정적으로 성장하도록 지원합니다.
                  </p>
@@ -597,7 +599,7 @@ export default function LandingPage() {
           </div>
           <div className="relative z-10 text-center text-white">
               <FadeIn>
-                  <h2 className="text-4xl font-bold mb-4">운영컨설팅</h2>
+                  <h2 className="text-2xl md:text-4xl font-bold mb-4">운영컨설팅</h2>
                   <p className="text-gray-300 text-lg">단발성 컨설팅이 아닌, 현장 중심의 지속 가능한 운영 지원입니다.</p>
               </FadeIn>
           </div>
@@ -608,11 +610,11 @@ export default function LandingPage() {
           <div className="max-w-[1440px] mx-auto px-5 xl:px-20">
               <div className="mb-24">
                   <FadeIn>
-                      <h2 className="text-3xl md:text-4xl xl:text-5xl font-bold mb-8" style={{ lineHeight: '1.5' }}>
+                      <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8" style={{ lineHeight: '1.5' }}>
                         현장 중심의 지속 가능한 운영 지원<br />
                         위드네트웍스만의 방식입니다.
                       </h2>
-                      <div className="text-gray-600 text-lg space-y-1" style={{ lineHeight: '2.2' }}>
+                      <div className="text-gray-600 text-lg space-y-1" style={{ lineHeight: '1.6' }}>
                           <p>개원 이후, 병원이 안정적으로 성장하도록 지원합니다.</p>
                           <p>진료·원무·청구 흐름 점검 및 개선을 통해 효율성을 극대화합니다.</p>
                           <p>단발성 컨설팅이 아닌 지속적인 파트너십으로 함께 성장합니다.</p>
@@ -646,7 +648,7 @@ export default function LandingPage() {
       <section className="py-24 xl:py-36 bg-gray-50">
           <div className="max-w-[1440px] mx-auto px-5 xl:px-20">
               <FadeIn>
-                 <h2 className="text-4xl xl:text-5xl font-bold text-center mb-6">위드네트웍스 컨설팅 실적</h2>
+                 <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-6">위드네트웍스 컨설팅 실적</h2>
                  <p className="text-center text-gray-600 text-lg mb-20" style={{ lineHeight: '1.8' }}>
                     다양한 진료과와 병·의원의 성공적인 개원과 운영을 지원하고 있습니다
                  </p>
@@ -682,7 +684,7 @@ export default function LandingPage() {
       <section className="py-24 xl:py-36 bg-white">
         <div className="max-w-[1440px] mx-auto px-5 xl:px-20 text-center">
             <FadeIn>
-                <h2 className="text-4xl font-bold mb-12" style={{ lineHeight: '1.4' }}>위드네트웍스의 차별화 포인트</h2>
+                <h2 className="text-2xl md:text-4xl font-bold mb-12" style={{ lineHeight: '1.4' }}>위드네트웍스의 차별화 포인트</h2>
                 <p className="text-gray-600 text-lg max-w-4xl mx-auto mb-16" style={{ lineHeight: '1.8' }}>
                     전문의가 직접 참여하는 실전 컨설팅, 현장 중심의 지속 가능한 운영 지원,<br />
                     CS 컨설팅를 통한 공동 성장 시스템을 제공합니다.
@@ -708,15 +710,15 @@ export default function LandingPage() {
       </section>
 
       {/* ================= HR CONSULTING BANNER ================= */}
-      <section className="relative h-[400px] flex items-center justify-center bg-gray-900 overflow-hidden">
+      <section className="relative h-[500px] md:h-[400px] flex items-center justify-center bg-gray-900 overflow-hidden">
          <div className="absolute inset-0">
              <img src="/source/7_인재채용&교육.jpg" className="w-full h-full object-cover opacity-40" alt="인재 채용 & 교육" />
              <div className="absolute inset-0 bg-black/40"></div>
          </div>
-         <div className="relative z-10 text-center text-white">
+         <div className="relative z-10 text-center text-white px-5">
              <FadeIn>
-                 <h2 className="text-4xl font-bold mb-6" style={{ lineHeight: '1.4' }}>인재 채용 & 교육</h2>
-                 <p className="text-gray-300 text-lg" style={{ lineHeight: '1.8' }}>매출로 이어지는 재진율 관리의 핵심은 좋은 직원을 통한 매뉴얼 구축입니다.<br />병원에 적합한 인재를 선별하고 현장에서 바로 적용 가능한 교육 시스템을 제공합니다.</p>
+                 <h2 className="text-2xl md:text-4xl font-bold mb-6" style={{ lineHeight: '1.4' }}>인재 채용 & 교육</h2>
+                 <p className="text-gray-300 text-sm md:text-lg" style={{ lineHeight: '1.8' }}>매출로 이어지는 재진율 관리의 핵심은 좋은 직원을 통한 매뉴얼 구축입니다.<br />병원에 적합한 인재를 선별하고 현장에서 바로 적용 가능한 교육 시스템을 제공합니다.</p>
              </FadeIn>
          </div>
       </section>
@@ -725,7 +727,7 @@ export default function LandingPage() {
       <section className="py-24 xl:py-32 bg-white">
          <div className="max-w-[1440px] mx-auto px-5 xl:px-20 text-center">
              <FadeIn>
-                 <h2 className="text-4xl font-bold mb-6" style={{ lineHeight: '1.4' }}>업무 프로세스</h2>
+                 <h2 className="text-2xl md:text-4xl font-bold mb-6" style={{ lineHeight: '1.4' }}>업무 프로세스</h2>
                  <p className="text-gray-600 text-lg mb-16" style={{ lineHeight: '1.8' }}>
                      병·의원의 시작부터 안정적인 성장까지 체계적으로 지원합니다.<br />
                      6단계 프로세스를 통해 성공적인 개원과 운영을 보장합니다.
@@ -750,11 +752,11 @@ export default function LandingPage() {
       {/* ================= MANAGEMENT: RECRUIT & EDUCATION (Refined) ================= */}
       <section className="relative py-24 xl:py-36 bg-white overflow-hidden">
           {/* Banner Image Area */}
-          <div className="w-full h-[300px] xl:h-[400px] relative overflow-hidden mb-20">
+          <div className="w-full h-[420px] md:h-[300px] xl:h-[400px] relative overflow-hidden mb-20">
              <img src="/source/8_인재채용&교육.jpg" className="w-full h-full object-cover brightness-50" alt="인재 채용 & 교육" />
              <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-5">
-                 <h2 className="text-3xl md:text-5xl font-bold mb-6" style={{ lineHeight: '1.4' }}>인재 채용 & 교육</h2>
-                 <p className="text-gray-200 text-lg max-w-4xl" style={{ lineHeight: '1.9' }}>
+                 <h2 className="text-2xl md:text-5xl font-bold mb-6" style={{ lineHeight: '1.4' }}>인재 채용 & 교육</h2>
+                 <p className="text-gray-200 text-sm md:text-lg max-w-4xl" style={{ lineHeight: '1.9' }}>
                     매출로 이어지는 재진율 관리의 핵심은 좋은 직원을 통한 매뉴얼 구축입니다.<br />
                     위드네트웍스는 병원에 적합한 인재를 선별하고 현장에서 바로 적용 가능한 교육 시스템을 제공합니다.<br />
                     병원의 첫인상은 결국 '사람'에서 완성되며, 함께 성장하는 팀을 만들어드립니다.
@@ -804,7 +806,7 @@ export default function LandingPage() {
          <div className="max-w-[1440px] mx-auto px-5 xl:px-20">
              <FadeIn>
                  <div className="text-center mb-20">
-                     <h2 className="text-4xl xl:text-5xl font-bold mb-8">CS 컨설팅 프로세스</h2>
+                     <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold mb-8">CS 컨설팅 프로세스</h2>
                      <p className="text-gray-600 text-xl max-w-3xl mx-auto" style={{ lineHeight: '1.8' }}>
                         체계적인 5단계 프로세스로 병원의 CS 수준을 향상시킵니다.<br />
                         상담부터 월간 점검까지, 지속적인 개선을 통해 환자 만족도와 재진율을 높입니다.
@@ -947,7 +949,7 @@ export default function LandingPage() {
       <section id="marketing" className="py-24 xl:py-36 bg-gray-50 scroll-mt-20">
          <div className="max-w-[1440px] mx-auto px-5 xl:px-20">
             <FadeIn>
-               <h2 className="text-4xl xl:text-5xl font-bold text-center mb-6">마케팅 서비스</h2>
+               <h2 className="text-2xl md:text-4xl xl:text-5xl font-bold text-center mb-6">마케팅 서비스</h2>
                <p className="text-center text-gray-600 text-lg mb-20" style={{ lineHeight: '1.8' }}>
                   병원 성장을 위한 종합 마케팅 솔루션을 제공합니다
                </p>
@@ -1104,7 +1106,7 @@ export default function LandingPage() {
                   </div>
                   <div className="space-y-1 md:text-right">
                       <p>고객센터: 010-6419-7861</p>
-                      <p>이메일: kang7349@gmail.com</p>
+                      <p>이메일: jar7861@naver.com</p>
                       <p>Copyright © 2024 위드네트웍스. All rights reserved.</p>
                   </div>
               </div>
@@ -1126,6 +1128,7 @@ export default function LandingPage() {
             <div className="space-y-3">
               <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand" />
               <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand" />
+              <textarea placeholder="문의사항 (선택)" value={consultMessage} onChange={(e) => setConsultMessage(e.target.value)} rows={3} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand resize-none" />
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 rounded border border-gray-300 flex items-center justify-center bg-brand">
                   <Check className="w-3 h-3 text-white" strokeWidth={3} />
@@ -1171,8 +1174,9 @@ export default function LandingPage() {
                  </div>
                  <span className="text-xs font-medium opacity-90">개인정보 수집·이용 동의</span>
              </div>
-             <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-28 text-sm focus:outline-none" />
-             <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-36 text-sm focus:outline-none" />
+             <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-24 text-sm focus:outline-none" />
+             <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-32 text-sm focus:outline-none" />
+             <input type="text" placeholder="문의사항" value={consultMessage} onChange={(e) => setConsultMessage(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-3 py-2 rounded w-36 text-sm focus:outline-none" />
              <button onClick={handleConsultSubmit} className="bg-black text-white px-6 py-2 rounded font-bold hover:bg-gray-900 transition-colors text-sm">
                 상담신청
              </button>
@@ -1200,8 +1204,9 @@ export default function LandingPage() {
                  </div>
                  <span className="text-sm font-medium opacity-90">개인정보 수집·이용 동의</span>
              </div>
-             <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-40 text-sm focus:outline-none" />
-             <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-48 text-sm focus:outline-none" />
+             <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-32 text-sm focus:outline-none" />
+             <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-40 text-sm focus:outline-none" />
+             <input type="text" placeholder="문의사항" value={consultMessage} onChange={(e) => setConsultMessage(e.target.value)} className="bg-white text-gray-800 placeholder-gray-400 px-4 py-2.5 rounded w-48 text-sm focus:outline-none" />
              <button onClick={handleConsultSubmit} className="bg-black text-white px-8 py-2.5 rounded font-bold hover:bg-gray-900 transition-colors text-sm">
                 상담신청
              </button>
