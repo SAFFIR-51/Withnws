@@ -1105,7 +1105,7 @@ export default function LandingPage() {
                       <p>주소: 경기도 파주시 청석로 115, 6층 606호 (동패동, 반석프라자)</p>
                   </div>
                   <div className="space-y-1 md:text-right">
-                      <p>고객센터: 010-6419-7861</p>
+                      <p>고객센터: 032-710-2214</p>
                       <p>이메일: jar7861@naver.com</p>
                       <p>Copyright © 2024 위드네트웍스. All rights reserved.</p>
                   </div>
@@ -1147,7 +1147,7 @@ export default function LandingPage() {
       <div className="fixed bottom-0 left-0 w-full z-50 bg-brand text-white md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
          <div className="text-[10px] text-center opacity-80 pt-2">평일 09:00 ~ 18:00 상담가능</div>
          <div className="py-2 pb-3 px-5 flex gap-2">
-            <a href="tel:010-6419-7861" className="flex-1 bg-white text-brand py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm">
+            <a href="tel:032-710-2214" className="flex-1 bg-white text-brand py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm">
               <Phone className="w-4 h-4" /> 전화상담
             </a>
             <button onClick={() => setShowConsultPopup(true)} className="flex-1 bg-black text-white py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2">
@@ -1164,7 +1164,7 @@ export default function LandingPage() {
              </div>
              <div className="flex items-center gap-2">
                  <Phone className="w-5 h-5" />
-                 <div className="text-xl font-bold">010-6419-7861</div>
+                 <div className="text-xl font-bold">032-710-2214</div>
              </div>
          </div>
          <div className="flex items-center gap-3">
@@ -1192,7 +1192,7 @@ export default function LandingPage() {
              <div className="flex items-center gap-3">
                  <Phone className="w-6 h-6" />
                  <div className="text-3xl font-bold tracking-wide">
-                    010-6419-7861
+                    032-710-2214
                  </div>
              </div>
          </div>
