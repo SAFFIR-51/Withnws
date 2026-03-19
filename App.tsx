@@ -627,7 +627,7 @@ export default function LandingPage() {
                   {[
                       { text: "전문의가 직접 참여하여 개원 준비부터 함께해주셔서, 시행착오를 크게 줄일 수 있었습니다. 입지 분석부터 인테리어, 장비 선정까지 실전 경험을 바탕으로 조언해주셔서 안정적으로 개원할 수 있었습니다.", author: "C병원 박** 원장님" },
                       { text: "개원 이후에도 지속적으로 운영 컨설팅을 받고 있습니다. 진료·원무·청구 흐름을 체계적으로 점검해주시고, 매출 구조 분석을 통해 수익성을 개선할 수 있었습니다. 단발성이 아닌 지속적인 파트너십이 큰 도움이 됩니다.", author: "D병원 권** 원장님" },
-                      { text: "CS 컨설팅를 통해 다른 병원들과 노하우를 공유하고, 공동 마케팅의 혜택도 받고 있습니다. 혼자가 아닌 네트워크로 성장한다는 것이 큰 힘이 됩니다.", author: "A병원 김** 원장님" },
+                      { text: "CS 컨설팅을 통해 다른 병원들과 노하우를 공유하고, 공동 마케팅의 혜택도 받고 있습니다. 혼자가 아닌 네트워크로 성장한다는 것이 큰 힘이 됩니다.", author: "A병원 김** 원장님" },
                       { text: "인력 채용부터 교육까지 체계적으로 지원받아, 우수한 팀을 구성할 수 있었습니다. 직원들의 업무 적응도 빨라지고, 환자 만족도도 크게 향상되었습니다.", author: "B병원 최** 원장님" },
                   ].map((review, i) => (
                       <FadeIn key={i} delay={i*0.1}>
@@ -687,7 +687,7 @@ export default function LandingPage() {
                 <h2 className="text-2xl md:text-4xl font-bold mb-12" style={{ lineHeight: '1.4' }}>위드네트웍스의 차별화 포인트</h2>
                 <p className="text-gray-600 text-lg max-w-4xl mx-auto mb-16" style={{ lineHeight: '1.8' }}>
                     전문의가 직접 참여하는 실전 컨설팅, 현장 중심의 지속 가능한 운영 지원,<br />
-                    CS 컨설팅를 통한 공동 성장 시스템을 제공합니다.
+                    CS 컨설팅을 통한 공동 성장 시스템을 제공합니다.
                 </p>
             </FadeIn>
 
@@ -695,7 +695,7 @@ export default function LandingPage() {
                 {[
                     { icon: <Users className="w-12 h-12" />, title: "전문의 직접 참여", desc: "개원 경험을 가진 현직 의사가 직접 참여하여 실전 노하우 제공" },
                     { icon: <BarChart className="w-12 h-12" />, title: "데이터 기반 분석", desc: "진료·매출 구조 분석을 통한\n맞춤형 솔루션 제공" },
-                    { icon: <Building className="w-12 h-12" />, title: "네트워크 시스템", desc: "CS 컨설팅를 통한 공동 마케팅 및 노하우 공유" },
+                    { icon: <Building className="w-12 h-12" />, title: "네트워크 시스템", desc: "CS 컨설팅을 통한 공동 마케팅 및 노하우 공유" },
                 ].map((item, i) => (
                     <FadeIn key={i} delay={i * 0.1}>
                         <div className="bg-[#F5F5F5] p-12 rounded-lg flex flex-col items-center justify-center min-h-[360px] hover:bg-gray-100 transition-colors">
