@@ -161,7 +161,7 @@ export default function LandingPage() {
               text-sm md:text-lg
               xl:text-xl 2xl:text-2xl max-w-3xl leading-relaxed
             ">
-              전문의와 컨설턴트가 함께 설계하는<br className="sm:hidden"/>
+              전문의와 컨설턴트가 함께 설계하는<br className="sm:hidden"/>{" "}
               병·의원 경영솔루션 전문 기업입니다.
             </p>
           </FadeIn>
@@ -189,11 +189,11 @@ export default function LandingPage() {
                 <div className="space-y-8 text-lg xl:text-2xl text-gray-600 font-medium" style={{ lineHeight: '1.8' }}>
                     <p>
                         개원의 성공요소는 경쟁력 있는 입지와 효율적인 마케팅을 통한 신환유입<br className="hidden xl:block" />
-                        그리고 내부의 안정적인 시스템 구축을 통한 재진률 관리에 있습니다.
+                        그리고 내부의 안정적인 시스템 구축을 통한 재진율 관리에 있습니다.
                     </p>
                     <p>
-                        위드네트웍스는 전문의와 컨설턴트가 함께 설계하는 병·의원 경영솔루션 업체로써,<br className="hidden xl:block" />
-                        위의 성공요인들이 유기적으로 셋팅 될 수 있도록 함께 설계해 드립니다.
+                        위드네트웍스는 전문의와 컨설턴트가 함께 설계하는 병·의원 경영솔루션 업체로서,<br className="hidden xl:block" />
+                        위의 성공요인들이 유기적으로 세팅될 수 있도록 함께 설계해 드립니다.
                     </p>
                 </div>
 
@@ -658,7 +658,7 @@ export default function LandingPage() {
                  {[
                     { num: "150+", label: "누적 컨설팅", img: "/source/6_위드네트웍스 실적/1_누적컨설팅.jpg" },
                     { num: "95%", label: "고객 만족도", img: "/source/6_위드네트웍스 실적/2_고객만족도.jpg" },
-                    { num: "85%", label: "재계약률", img: "/source/6_위드네트웍스 실적/3_재계약률.jpg" },
+                    { num: "85%", label: "재계약율", img: "/source/6_위드네트웍스 실적/3_재계약률.jpg" },
                     { num: "24H", label: "상담 지원", img: "/source/6_위드네트웍스 실적/4_상담지원.jpg" }
                  ].map((item, i) => (
                     <FadeIn key={i} delay={i * 0.1}>
@@ -788,7 +788,7 @@ export default function LandingPage() {
                           <h3 className="text-3xl font-bold text-brand mb-10">02. 교육지원</h3>
                           <ul className="space-y-6 text-gray-700 relative z-10">
                               <li className="flex items-start gap-3"><Check className="w-5 h-5 text-brand shrink-0 mt-1" /> <span className="text-lg">신규 직원 및 관리자 대상 코칭 프로그램</span></li>
-                              <li className="flex items-start gap-3"><Check className="w-5 h-5 text-brand shrink-0 mt-1" /> <span className="text-lg">환자 응대 및 커뮤니케이션 중심 CS교육</span></li>
+                              <li className="flex items-start gap-3"><Check className="w-5 h-5 text-brand shrink-0 mt-1" /> <span className="text-lg">환자 응대 및 커뮤니케이션 중심 CS 교육</span></li>
                               <li className="flex items-start gap-3"><Check className="w-5 h-5 text-brand shrink-0 mt-1" /> <span className="text-lg">병원 내 서비스 매뉴얼 구축 및 실무 피드백</span></li>
                               <li className="flex items-start gap-3"><Check className="w-5 h-5 text-brand shrink-0 mt-1" /> <span className="text-lg">지속적인 직원 만족도 및 서비스 품질 관리</span></li>
                           </ul>
@@ -1124,7 +1124,7 @@ export default function LandingPage() {
               <X className="w-5 h-5" />
             </button>
             <h3 className="text-xl font-bold text-gray-900 mb-1">상담신청</h3>
-            <p className="text-sm text-gray-500 mb-5">평일 09:00 ~ 18:00 상담가능</p>
+            <p className="text-sm text-gray-500 mb-5">평일 09:00 ~ 18:00 상담 가능</p>
             <div className="space-y-3">
               <input type="text" placeholder="이름" value={consultName} onChange={(e) => setConsultName(e.target.value)} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand" />
               <input type="text" placeholder="전화번호" value={consultPhone} onChange={(e) => setConsultPhone(e.target.value)} className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-brand" />
@@ -1145,7 +1145,7 @@ export default function LandingPage() {
 
       {/* 1. Mobile Only (Sticky Bottom) */}
       <div className="fixed bottom-0 left-0 w-full z-50 bg-brand text-white md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.15)]">
-         <div className="text-[10px] text-center opacity-80 pt-2">평일 09:00 ~ 18:00 상담가능</div>
+         <div className="text-[10px] text-center opacity-80 pt-2">평일 09:00 ~ 18:00 상담 가능</div>
          <div className="py-2 pb-3 px-5 flex gap-2">
             <a href="tel:032-710-2214" className="flex-1 bg-white text-brand py-3 rounded-lg font-bold text-sm flex items-center justify-center gap-2 shadow-sm">
               <Phone className="w-4 h-4" /> 전화상담
@@ -1160,7 +1160,7 @@ export default function LandingPage() {
       <div className="hidden md:flex xl:hidden fixed bottom-0 left-0 w-full z-50 bg-brand text-white h-16 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] items-center justify-between px-8">
          <div className="flex items-center gap-4">
              <div className="bg-[#FFD700] text-black px-4 py-1 rounded-full font-bold text-xs shadow-sm">
-                평일 09:00 ~ 18:00 상담가능
+                평일 09:00 ~ 18:00 상담 가능
              </div>
              <div className="flex items-center gap-2">
                  <Phone className="w-5 h-5" />
@@ -1187,7 +1187,7 @@ export default function LandingPage() {
       <div className="hidden xl:flex fixed bottom-0 left-0 w-full z-50 bg-brand text-white h-20 shadow-[0_-4px_20px_rgba(0,0,0,0.15)] items-center justify-between px-20">
          <div className="flex items-center gap-6">
              <div className="bg-[#FFD700] text-black px-5 py-1.5 rounded-full font-bold text-sm shadow-sm">
-                평일 09:00 ~ 18:00 상담가능
+                평일 09:00 ~ 18:00 상담 가능
              </div>
              <div className="flex items-center gap-3">
                  <Phone className="w-6 h-6" />
